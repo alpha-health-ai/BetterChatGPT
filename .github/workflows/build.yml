@@ -1,6 +1,6 @@
 # action.yml
 name: 'build Akasa BetterChatGPT'
-description: 'build akasa fork of BetterChatGPT'
+
 on:
   push:
     branches:
