@@ -4,7 +4,7 @@ description: 'build akasa fork of BetterChatGPT'
 on:
   push:
     branches:
-      -'**'
+      - '**'
 jobs:
   build:
     runs-on: self-hosted
