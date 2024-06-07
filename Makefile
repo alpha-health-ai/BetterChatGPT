@@ -1,4 +1,4 @@
-DateStamp := $(shell /bin/date "+%Y%m%d%H%M%S")
+DateStamp := $(shell /bin/date "+%Y%m%d%H")
 CURRENT_BRANCH := $(shell git rev-parse --abbrev-ref HEAD)
 
 # Conditionally set the BRANCH_NAME variable
@@ -10,7 +10,7 @@ endif
 
 VERSION := "$(BRANCH_NAME)$(DateStamp)"
 
-URL=277516517760.dkr.ecr.us-west-2.amazonaws.com/akasa-brtterchatgpt
+URL=277516517760.dkr.ecr.us-west-2.amazonaws.com/akasa-betterchatgpt
 
 info:
 	echo ${VERSION}
@@ -22,12 +22,12 @@ shell:
 	docker run -it ${URL}:${VERSION} bash
 
 run:
-	docker run -p 5173:5173 ${URL}:${VERESION}
+	docker run -p 5173:5173 ${URL}:${VERSION}
 
 size:
 	docker history ${URL}:${VERSION}
 
-push: build-base login-ecr
+push: build ecr-login
 	docker push ${URL}:${VERSION}
 
 latest: ecr-login
