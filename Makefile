@@ -30,7 +30,7 @@ size:
 push: build ecr-login
 	docker push ${URL}:${VERSION}
 
-latest: ecr-login
+latest: ecr-login push
 	docker tag ${URL}:${VERSION} ${URL}:latest
 	docker push ${URL}:latest
 
